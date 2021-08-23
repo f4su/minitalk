@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgainza- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/23 11:50:00 by jgainza-          #+#    #+#             */
+/*   Updated: 2021/08/23 11:51:44 by jgainza-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <signal.h>
 #include <unistd.h>
 
@@ -5,9 +17,9 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
+
 void	ft_putnbr_fd(int n, int fd)
 {
-
 	if (n == -2147483648)
 		write(1, "-2147483648", 11);
 	else
@@ -23,7 +35,7 @@ void	ft_putnbr_fd(int n, int fd)
 void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*aux;
-	size_t		i;
+	size_t			i;
 
 	i = 0;
 	aux = (unsigned char *)b;
@@ -35,8 +47,8 @@ void	*ft_memset(void *b, int c, size_t len)
 void	ft_interpreter(int sign)
 {
 	static size_t	i;
-	static int	bit;
-	static char	buff[100];
+	static int		bit;
+	static char		buff[100];
 
 	if (--bit == -1)
 	{

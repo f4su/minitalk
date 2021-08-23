@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgainza- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/23 11:49:37 by jgainza-          #+#    #+#             */
+/*   Updated: 2021/08/23 11:53:49 by jgainza-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <signal.h>
 
@@ -36,7 +48,6 @@ static int	ft_message(pid_t num_pid, char *b)
 		i++;
 	}
 	return (0);
-
 }
 
 static int	ft_atoi(const char *str)
@@ -48,14 +59,14 @@ static int	ft_atoi(const char *str)
 	i = 0;
 	j = 0;
 	neg = '+';
-	while((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	if (str[i]== '-')
+	if (str[i] == '-')
 		neg = str[i++];
 	if (str[i] == '+' && neg == '-')
 		return (0);
 	i += (str[i] == '+');
-	while (str[i] >= '0' && str[i]<= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		j *= 10;
 		j += str[i] - '0';
@@ -77,7 +88,8 @@ int	main(int argc, char **argv)
 		write(2, "Introduzca un PID y una cadena\n", 32);
 		return (1);
 	}
-	if ((num_pid = ft_atoi(argv[1])) == 0)
+	num_pid = ft_atoi(argv[1]);
+	if (num_pid == 0)
 	{
 		write(2, "PID desconocido\n", 32);
 		return (1);
